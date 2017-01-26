@@ -18,7 +18,7 @@ app.get('/api/whoami', function (req, res) {
   res.json(obj);
 })
 
-var port = process.argv.PORT || 3000;
+var port = process.env.PORT || 3000;
 app.listen(port, function () {
   console.log('Request-header-parser listening on port ' + port + '!')
 })
