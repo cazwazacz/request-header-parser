@@ -2,6 +2,12 @@ var express = require('express')
 var app = express()
 app.enable('trust proxy')
 
+app.use(express.static('public'));
+
+app.get('/', function (req, res){
+  res.sendFile(__dirname + '/index.html');
+})
+
 app.get('/api/whoami', function (req, res) {
   //res.send('Hello World!')
   var ip = req.ip
