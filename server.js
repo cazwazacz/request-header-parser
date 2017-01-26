@@ -1,14 +1,12 @@
 var express = require('express')
 var app = express()
+app.enable('trust proxy')
 
 app.get('/api/whoami', function (req, res) {
   //res.send('Hello World!')
   var ip = req.ip
-  console.log(ip)
   var language = req.headers['accept-language'].split(",")[0];
   var software = req.headers['user-agent'].split("(")[1].split(")")[0]
-  console.log(language)
-  console.log(software)
   var obj = {
     ipaddress: ip,
     language: language,
